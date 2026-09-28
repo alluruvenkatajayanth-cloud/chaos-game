@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#02060d">
+  <meta name="description" content="CHAOS.EXE is an interactive browser experiment. Press the button. Discover what happens.">
+  <title>CHAOS.EXE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+  <div class="background"></div>
+  <div class="vignette"></div>
+  <div id="screenFlash"></div>
+
+  <header class="topbar">
+    <div class="brand-mini">CHAOS<span>.EXE</span></div>
+    <div class="top-actions">
+      <button id="archiveButton" class="top-button">ARCHIVE <b id="archiveBadge">0/24</b></button>
+      <button id="soundButton" class="icon-button" aria-label="Toggle sound">🔊</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="warning">⚠ EXPERIMENTAL SYSTEM ⚠</div>
+
+    <h1>CHAOS<span>.EXE</span></h1>
+    <p class="subtitle">A perfectly normal website.<br><span>Probably.</span></p>
+
+    <div class="core-wrap">
+      <div class="orbit orbit-one"></div>
+      <div class="orbit orbit-two"></div>
+      <button id="chaosButton" aria-label="Press to activate chaos">
+        <span>PRESS</span>
+        <strong>ME</strong>
+        <small>ACTIVATE</small>
+      </button>
+    </div>
+
+    <section class="eventBox">
+      <div class="eventLabel">SYSTEM MESSAGE</div>
+      <p id="message">Don't you dare.</p>
+      <div id="rarityTag" class="rarity-tag">STANDBY</div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span>CLICKS</span>
+        <strong id="clickCount">0</strong>
+      </div>
+      <div class="stat chaosStat">
+        <span>CHAOS LEVEL</span>
+        <div class="bar"><div id="chaosBar"></div></div>
+        <strong id="chaosPercent">0%</strong>
+      </div>
+      <div class="stat">
+        <span>STREAK</span>
+        <strong id="streakCount">0</strong>
+      </div>
+    </section>
+
+    <section class="progression">
+      <div class="stage-label">CURRENT SYSTEM STATUS</div>
+      <h2 id="stageName">SYSTEM STABLE</h2>
+      <p id="stageDescription">Everything appears normal.</p>
+      <div class="stageProgress"><div id="stageProgressBar"></div></div>
+      <div class="stageInfo">
+        <span id="stageNumber">STAGE 1 / 6</span>
+        <span id="nextStage">NEXT: UNSTABLE</span>
+      </div>
+    </section>
+
+    <div class="discovery">
+      <span>EVENTS</span>
+      <strong id="eventCount">0</strong>
+      <span class="separator">/</span>
+      <span>24</span>
+      <span class="dot">•</span>
+      <span>ACHIEVEMENTS</span>
+      <strong id="achievementCount">0</strong>
+      <span class="separator">/</span>
+      <span>12</span>
+    </div>
+
+    <div class="hint" id="hint">Click the button. Find the anomalies. Break nothing important.</div>
+    <button id="resetButton" class="reset-button">RESET EXPERIMENT</button>
+  </main>
+
+  <div id="achievementPopup" class="toast">
+    <div class="toast-icon">🏆</div>
+    <div><small>ACHIEVEMENT UNLOCKED</small><strong id="achievementName">FIRST CONTACT</strong></div>
+  </div>
+
+  <div id="secretPopup" class="toast secret-toast">
+    <div class="toast-icon">◈</div>
+    <div><small>HIDDEN ANOMALY</small><strong id="secretName">UNKNOWN</strong></div>
+  </div>
+
+  <div id="archiveModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeArchive" class="close-button">×</button>
+      <div class="modal-kicker">CHAOS DATABASE</div>
+      <h2>EVENT ARCHIVE</h2>
+      <p class="modal-subtitle">Every anomaly you discover stays here.</p>
+      <div id="archiveGrid" class="archive-grid"></div>
+    </div>
+  </div>
+
+  <div id="terminalModal" class="modal hidden">
+    <div class="terminal-card">
+      <div class="terminal-head"><span>CHAOS TERMINAL</span><button id="closeTerminal">×</button></div>
+      <div id="terminalOutput" class="terminal-output"></div>
+      <div class="terminal-input-row"><span>&gt;</span><input id="terminalInput" autocomplete="off" spellcheck="false" placeholder="type a command..."></div>
+    </div>
+  </div>
+
+  <div id="overloadOverlay" class="overload-overlay hidden">
+    <div class="overload-text">
+      <div class="overload-kicker">CRITICAL SYSTEM EVENT</div>
+      <h2>SYSTEM FAILURE</h2>
+      <p>You were warned.</p>
+      <button id="continueAfterOverload">CONTINUE ANYWAY</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
